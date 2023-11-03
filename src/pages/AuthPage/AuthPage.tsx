@@ -2,13 +2,16 @@ import React, { ChangeEvent, useState } from "react";
 
 import "./style.scss";
 import { Button, Input } from "antd";
+import { useNavigate } from "react-router";
 
 const accessUser = {
-  login: "Vlad",
-  password: "qwerty123",
+  login: "admin",
+  password: "admin",
 };
 
 const AuthPage = () => {
+  const navigate = useNavigate();
+
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
@@ -25,9 +28,10 @@ const AuthPage = () => {
   };
 
   const handleEnter = () => {
-    // проверить введеный лог и пароль пользоваетля с верной учеткой
     if (login === accessUser.login && password === accessUser.password) {
-      console.log("Успешно");
+      navigate("/");
+
+      sessionStorage.setItem("username", login);
     } else {
       setError(true);
     }
