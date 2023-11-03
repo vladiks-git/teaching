@@ -1,0 +1,23 @@
+.header{
+  background: white;
+  &__inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__img{
+    width: 265px;
+    height: 122px;
+  }
+
+  &__actions{
+    display: flex;
+    gap: 64px;
+    align-items: center;
+  }
+  &__user-info{
+    display: flex;
+    gap: 12px;
+  }
+}
