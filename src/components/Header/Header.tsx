@@ -3,9 +3,17 @@ import { UserOutlined } from "@ant-design/icons";
 
 import "./style.scss";
 import { Button } from "antd";
+import { useNavigate } from "react-router";
 
 const Header = () => {
+  const navigate = useNavigate();
+
   const username = sessionStorage.getItem("username");
+
+  const handleLogout = () => {
+    navigate("/auth");
+    sessionStorage.removeItem("username");
+  };
 
   return (
     <div className={"header"}>
@@ -23,7 +31,7 @@ const Header = () => {
             Ваш логин - {username}
           </div>
           <div className="header__exit">
-            <Button type="primary" danger>
+            <Button type="primary" danger onClick={handleLogout}>
               Выход
             </Button>
           </div>
