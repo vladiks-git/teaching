@@ -2,6 +2,9 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AuthPage from "./pages/AuthPage/AuthPage";
 import MainPage from "./pages/MainPage/MainPage";
+import FavoritePage from "./pages/FavoritePage/FavoritePage";
+import MainLayout from "./layouts/MainLayout";
+import ProtectedPage from "./components/ProtectedPage/ProtectedPage";
 
 const AppRouter = () => {
   const router = createBrowserRouter([
@@ -11,7 +14,22 @@ const AppRouter = () => {
     },
     {
       path: "/",
-      element: <MainPage />,
+      element: (
+        <ProtectedPage>
+          <MainLayout />
+        </ProtectedPage>
+      ),
+
+      children: [
+        {
+          index: true,
+          element: <MainPage />,
+        },
+        {
+          path: "favorite",
+          element: <FavoritePage />,
+        },
+      ],
     },
   ]);
 
