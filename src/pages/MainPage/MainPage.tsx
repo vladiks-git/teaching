@@ -1,17 +1,10 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import CountriesList from "../../components/CountriesList/CountriesList";
+import MainLayout from "../../layouts/MainLayout";
 
 const MainPage = () => {
-  return (
-    <div>
-      1
-      <Header />
-      <div className={"container"}>
-        <CountriesList />
-      </div>
-    </div>
-  );
+  return <CountriesList />;
 };
 
 export default MainPage;
