@@ -4,6 +4,19 @@ import { UserOutlined } from "@ant-design/icons";
 import "./style.scss";
 import { Button } from "antd";
 import { useNavigate } from "react-router";
+import { NavLink } from "react-router-dom";
+import { routes } from "../../consts/routes";
+
+const links = [
+  {
+    href: routes.MAIN,
+    title: "Главная",
+  },
+  {
+    href: `/${routes.FAVOURITE}`,
+    title: "Избранное",
+  },
+];
 
 const Header = () => {
   const navigate = useNavigate();
@@ -26,6 +39,13 @@ const Header = () => {
           />
         </div>
         <div className="header__actions">
+          <ul className="header__navigation">
+            {links.map((link) => (
+              <li key={Math.random()}>
+                <NavLink to={link.href}>{link.title}</NavLink>
+              </li>
+            ))}
+          </ul>
           <div className="header__user-info">
             <UserOutlined />
             Ваш логин - {username}

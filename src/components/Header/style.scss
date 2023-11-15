@@ -13,11 +13,25 @@
 
   &__actions{
     display: flex;
-    gap: 64px;
+    gap: 32px;
     align-items: center;
   }
   &__user-info{
     display: flex;
     gap: 12px;
+  }
+
+  &__navigation{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    li:hover{
+      color: #4747f6;
+    }
+
+    a.active{
+      color: #4747f6;
+      font-weight: 600;
+    }
   }
 }
