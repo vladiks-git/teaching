@@ -6,6 +6,15 @@
   box-sizing: border-box;
 }
 
+ul{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
 body{
   background: #f3f3f3;
   font-family: 'Roboto', sans-serif;

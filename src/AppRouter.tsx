@@ -5,15 +5,17 @@ import MainPage from "./pages/MainPage/MainPage";
 import FavoritePage from "./pages/FavoritePage/FavoritePage";
 import MainLayout from "./layouts/MainLayout";
 import ProtectedPage from "./components/ProtectedPage/ProtectedPage";
+import { routes } from "./consts/routes";
 
 const AppRouter = () => {
   const router = createBrowserRouter([
     {
-      path: "/auth",
+      path: `/${routes.AUTH}`,
       element: <AuthPage />,
     },
+
     {
-      path: "/",
+      path: routes.MAIN,
       element: (
         <ProtectedPage>
           <MainLayout />
@@ -26,10 +28,14 @@ const AppRouter = () => {
           element: <MainPage />,
         },
         {
-          path: "favorite",
+          path: routes.FAVOURITE,
           element: <FavoritePage />,
         },
       ],
+    },
+    {
+      path: "*",
+      element: <h4>404</h4>,
     },
   ]);
 
