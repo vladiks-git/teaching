@@ -1,8 +1,7 @@
 import React from "react";
-import { Card } from "antd";
-import Meta from "antd/es/card/Meta";
 
 import "./style.scss";
+import CountryCard from "../CountryCard/CountryCard";
 
 const CountriesList = () => {
   const countries = [
@@ -26,17 +25,14 @@ const CountriesList = () => {
   return (
     <div>
       <div className="country-list">
-        {countries.map((item, index) => {
-          return (
-            <Card
-              hoverable
-              key={index}
-              cover={<img alt="example" src={item.img} />}
-            >
-              <Meta title={item.title} description={item.link} />
-            </Card>
-          );
-        })}
+        {countries.map((item, index) => (
+          <CountryCard
+            key={index}
+            link={item.link}
+            title={item.title}
+            img={item.img}
+          />
+        ))}
       </div>
     </div>
   );

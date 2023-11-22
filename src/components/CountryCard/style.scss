@@ -1,0 +1,9 @@
+.country-card{
+  &__like{
+    display: flex;
+    justify-content: end;
+  }
+  &__like-icon path{
+    fill: red;
+  }
+}
